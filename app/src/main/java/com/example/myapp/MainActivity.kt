@@ -29,8 +29,8 @@ class MainActivity : AppCompatActivity() {
         val username = findViewById(R.id.Name) as EditText
         val pass = findViewById(R.id.Password) as EditText
 
-        var user = username.getText().toString().trim()
-        var Pass = pass.getText().toString().trim()
+        var user = username.getText().toString()
+        var Pass = pass.getText().toString()
 
 
         if(user.isEmpty() && Pass.isEmpty())
@@ -43,14 +43,14 @@ class MainActivity : AppCompatActivity() {
                     {
                         var User: FirebaseUser? = Auth.getCurrentUser()
                         if(User == null)
-                        {
-                            Toast.makeText(this, "Error occured", Toast.LENGTH_SHORT).show()
+                     
+                            Toast.makeText(this, "Error ", Toast.LENGTH_SHORT).show()
                         }
                         else
                             if(User.isEmailVerified) {
                                 startActivity(Intent(this, SignInActivity::class.java))
                                 finish()
-                                Toast.makeText(this, "Sign in successful", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this, "successful signin", Toast.LENGTH_SHORT).show()
                             }
                             else
                             {
